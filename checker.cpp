@@ -10,7 +10,7 @@ ifstream input     ; // 题目的输入文件
 ifstream output    ; // 用户输出
 
 const int maxn = 1e5 + 10 ;
-int T, n, data[maxn], a[9][9];
+int T, n, dat[maxn], a[9][9];
 char str[100] ;
 double realScore = 0 ;
 
@@ -31,51 +31,51 @@ void judge () {
 	input >> T ;
     input >> n ;
     for (int i = 0; i < n; i ++)
-        input >> data[i] ;
+        input >> dat[i] ;
 
     int curScore = 0 ;
 	while(curScore<n){
 		int p ;
 		output >> p ;
-		if ((data[curScore] == 3 || data[curScore] >= 6) && p >= 9 || data[curScore] == 5 && p >= 8) {
+		if ((dat[curScore] == 3 || dat[curScore] >= 6) && p >= 9 || dat[curScore] == 5 && p >= 8) {
 			realScore = calScore (curScore) ;
 			throw ("position is not valid.") ;
 		}
 
 		--p;
-		if(data[curScore]==1){
+		if(dat[curScore]==1){
 			if(a[8][p])break;
 			a[8][p]=2;
 		}
-		else if(data[curScore]==2){
+		else if(dat[curScore]==2){
 			if(a[8][p]||a[7][p])break;
 			a[8][p]=a[7][p]=2;
 		}
-		else if(data[curScore]==3){
+		else if(dat[curScore]==3){
 			if(a[8][p]||a[8][p+1])break;
 			a[8][p]=a[8][p+1]=2;
 		}
-		else if(data[curScore]==4){
+		else if(dat[curScore]==4){
 			if(a[8][p]||a[7][p]||a[6][p])break;
 			a[8][p]=a[7][p]=a[6][p]=2;
 		}
-		else if(data[curScore]==5){
+		else if(dat[curScore]==5){
 			if(a[8][p]||a[8][p+1]||a[8][p+2])break;
 			a[8][p]=a[8][p+1]=a[8][p+2]=2;
 		}
-		else if(data[curScore]==6){
+		else if(dat[curScore]==6){
 			if(a[8][p]||a[7][p]||a[8][p+1]||a[7][p+1])break;
 			a[8][p]=a[7][p]=a[7][p+1]=2;
 		}
-		else if(data[curScore]==7){
+		else if(dat[curScore]==7){
 			if(a[8][p+1]||a[7][p]||a[8][p]||a[7][p+1])break;
 			a[8][p+1]=a[7][p]=a[7][p+1]=2;
 		}
-		else if(data[curScore]==8){
+		else if(dat[curScore]==8){
 			if(a[8][p]||a[7][p]||a[8][p+1])break;
 			a[8][p]=a[7][p]=a[8][p+1]=2;
 		}
-		else if(data[curScore]==9){
+		else if(dat[curScore]==9){
 			if(a[8][p]||a[8][p+1]||a[7][p+1])break;
 			a[8][p]=a[8][p+1]=a[7][p+1]=2;
 		}
